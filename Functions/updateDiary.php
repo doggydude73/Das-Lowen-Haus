@@ -29,7 +29,7 @@
 
     }else{
         // Add a new entry into the diary
-        $query = "INSERT INTO entries VALUES ('".date("Y/m/d H:i:s")."','".$entry."','".date("Y/m/d")."')";
+        $query = "INSERT INTO entries (Date, Entry, calendarDate) VALUES ('".date("Y/m/d H:i:s")."','".$entry."','".date("Y/m/d")."')";
         mysql_query($query,$db);
     }
 

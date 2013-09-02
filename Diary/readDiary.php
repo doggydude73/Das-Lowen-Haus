@@ -5,12 +5,16 @@
     if ($_SESSION['role'] != "SuperAdministrator"){
         header("Location: ../mainPage.php");
     }
+
+	if(!isset($_SESSION['SID']))
+	{
+		$_SESSION['SID'] = 0;
+	}
     
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
     mysql_select_db("Diary", $db);
     date_default_timezone_set("America/Detroit");
-    $currMod = $_SESSION['diaryDate'];
-    $daySelect = mktime(date("H"), date("i"), date("s"),date("m"), date("d")+$currMod, date("Y"));
+	
     $query = "SELECT * FROM entries ORDER BY Date DESC";
     $sql = mysql_query($query,$db);
     $currEntry = "";
@@ -18,10 +22,22 @@
 
     while($row = mysql_fetch_array($sql))
     {
-        if ($row['calendarDate'] == date("Y-m-d",$daySelect)){
-            $currEntry = $row['Entry'];
-            $time = $row['Date'];
-        }
+		// Check to see if the diary page has just been opened
+		if ($_SESSION['SID'] == 0)
+		{
+			// Get the most current entry and break from the loop
+			$currEntry = $row['Entry'];
+			$time = $row['Date'];
+			$_SESSION['SID'] = $row['SID'];
+			$_SESSION['maxSID'] = $row['SID']; // Save the largest SID to make sure the user can't advance past his newest entry
+			break;
+		}
+		elseif($_SESSION['SID'] == $row['SID'])
+		{
+			// Find the row that matches the current SID and report its information and break from the loop
+			$currEntry = $row['Entry'];
+			$time = $row['Date'];	
+		}
     }
     $time = strtotime($time);
     $time = date("F dS Y g:i:s A", $time);
@@ -41,7 +57,7 @@
                 <!-- This is the buttons for the next and previous day-->
                 <ul class="pager">
                     <?php
-                        if (date("Y-m-d",$daySelect) == "2013-04-16" ){
+                        if ($_SESSION['SID'] == "1" ){
                             echo '<li class="previous disabled">
                                   <a href="#">&larr; Previous Day</a>
                               </li>';
@@ -51,7 +67,7 @@
                               </li>';
                         }
 
-                        if (date("Y-m-d") == date("Y-m-d",$daySelect)){
+                        if ($_SESSION['SID'] == $_SESSION['maxSID']){
                         echo '<li class="next disabled">
                                   <a href="#">Next Day &rarr;</a>
                               </li>';
