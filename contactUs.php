@@ -36,39 +36,6 @@
 
                     <!-- Current Site Administrator: Update as needed-->
                     <li><h5>Current Administrator - Andrew J. Suneson</h5></li>
-                    <br>
-
-                    <h3>MTU League of Legends Club E-Board</h3>
-                    <br>
-                    <!-- League of Legends President: Update Yearly-->
-                    <li><h5>President - Someone</h5>
-                    <ul>
-                        <li><h6>Email Address - someone@mtu.edu</h6></li>
-                    </ul></li>
-                    <br>
-
-                    <!-- League of Legends Vice-President: Update Yearly-->
-                    <li><h5>Vice-President - Someone</h5>
-                    <ul>
-                        <li><h6>Email Address - someone@mtu.edu</h6></li>
-                    </ul></li>
-                    <br>
-
-                    <!-- League of Legends Secretary: Update Yearly-->
-                    <li><h5>Secretary - Someone</h5>
-                    <ul>
-                        <li><h6>Email Address - someone@mtu.edu</h6></li>
-                    </ul></li>
-                    <br>
-
-                    <!-- League of Legends Treasurer: Update Yearly-->
-                    <li><h5>Treasurer - Someone</h5>
-                    <ul>
-                        <li><h6>Email Address - someone@mtu.edu</h6></li>
-                    </ul></li>
-                    <br>
-
-
 
                 </ul>
             </div>
