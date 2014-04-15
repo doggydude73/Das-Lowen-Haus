@@ -4,7 +4,7 @@
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
     if (!$db){die('Could not connect to database');}
-    mysql_select_db("Users", $db);
+    mysql_select_db("das_users", $db);
 
     function redirection($website){
         header($website);

@@ -57,7 +57,7 @@
 
                     // All of the information is valid.  Create a new account
                     if ($ErrorMessage == ""){
-                        mysql_select_db("Users", $db);
+                        mysql_select_db("das_users", $db);
                         
                         // Confirm Role
                         if ($rolePassword == "admin10176"){$rolePassword = "Administrator";}

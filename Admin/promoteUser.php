@@ -3,7 +3,7 @@
 	include '../databaseConnection.php';
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
-    mysql_select_db("Users", $db);
+    mysql_select_db("das_users", $db);
 
     if ($_SESSION['role'] != "Administrator" && $_SESSION['role'] != "SuperAdministrator"){
         header("Location: ../mainPage.php");
