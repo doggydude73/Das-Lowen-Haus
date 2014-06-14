@@ -50,7 +50,7 @@
    */
     function getId ($db, $user){
         
-        mysql_select_db("Users",$db);
+        mysql_select_db("das_users",$db);
         $query = "SELECT * FROM userprofile WHERE LoginId = '$user'";
         $sql = mysql_query($query, $db);
         while($row = mysql_fetch_array($sql))
@@ -61,7 +61,7 @@
     }
 
     function getName ($query, $db){
-        mysql_select_db("Users", $db);
+        mysql_select_db("das_users", $db);
         $sql = mysql_query($query,$db);
         $name = "";
         while($row = mysql_fetch_array($sql))
@@ -103,7 +103,7 @@
                    0 - User is not registered
     */
     function isRegistered($name,$db){
-        $query = "SELECT teamID FROM registration WHERE name = '".$name."'";
+        $query = "SELECT teamID FROM broomball_registration WHERE name = '".$name."'";
         $sql = mysql_query($query,$db);
         $reg = "0";
         while($row = mysql_fetch_array($sql))

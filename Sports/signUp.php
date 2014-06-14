@@ -2,7 +2,7 @@
     include '../Layout.php';
 
     $db = mysql_connect("localhost","root","jasmine");
-    mysql_select_db("Hockey", $db);
+    mysql_select_db("das_users", $db);
 
     $currTime = date("m/d/Y H:i:s");
     $cutOff = mktime(date("H"), date("i"), date("s"), date("m"), date("d")+4, date("Y"));

@@ -5,7 +5,7 @@
     include '../databaseConnection.php';
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
-    mysql_select_db("broomball", $db);
+    mysql_select_db("das_users", $db);
     $errorMessage = "";
     $_SESSION['error'] = "";
     $name = $_SESSION['name'];
@@ -72,7 +72,7 @@
             $registered = isRegistered($_SESSION['name'], $db);
 
             if ($registered == "0"){
-                $query = "INSERT INTO registration VALUES ('$name','$pos1','$pos2','$pos3','$hockey','$hockeyExp','$soccer','$soccerExp','$otherSport','$otherSportExp','$returnVal','$resValue','$emailAddr','0')";
+                $query = "INSERT INTO broomball_registration VALUES ('$name','$pos1','$pos2','$pos3','$hockey','$hockeyExp','$soccer','$soccerExp','$otherSport','$otherSportExp','$returnVal','$resValue','$emailAddr','0')";
                 mysql_query($query,$db);
             }else{
                 $errorMessage = "You have already registered for the broomball season. Please contact the administrator if you wish to make changes.";

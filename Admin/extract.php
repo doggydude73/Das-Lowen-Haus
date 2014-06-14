@@ -8,7 +8,7 @@
     }
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
-    mysql_select_db("Hockey", $db);
+    mysql_select_db("das_users", $db);
 ?>
 
 <!DOCTYPE html>

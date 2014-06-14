@@ -7,7 +7,7 @@
     }
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
-    mysql_select_db("Hockey", $db);
+    mysql_select_db("das_users", $db);
 
     /* Post Form Handler */
     if(isset($_POST['submit'])){

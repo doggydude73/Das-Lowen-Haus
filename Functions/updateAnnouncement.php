@@ -5,7 +5,7 @@
     include '../databaseConnection.php';
 
     $db = mysql_connect($connection,$dbUsername,$dbPassword);
-    mysql_select_db("Announcements", $db);
+    mysql_select_db("das_users", $db);
 
     // Update any potential announcements to displayable
     $query = "SELECT * FROM announce WHERE approval = 'No' ORDER BY time DESC";

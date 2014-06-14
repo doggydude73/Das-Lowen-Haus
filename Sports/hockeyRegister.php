@@ -5,7 +5,7 @@
         include '../Layout.php';
 
         $db = mysql_connect("localhost","root","jasmine");
-        mysql_select_db("Hockey", $db);
+        mysql_select_db("das_users", $db);
 
         $currTime = date("m/d/Y H:i:s");
         $cutOff = mktime(date("H"), date("i"), date("s"), date("m"), date("d")+4, date("Y"));
@@ -39,7 +39,7 @@
                         $id = getId($db, $_SESSION['user']);
                     
                         // Swap back to the hockey database
-                        mysql_select_db("Hockey", $db);
+                        mysql_select_db("das_users", $db);
 
                         // Insert the user into the correct game as going
                         $query = "INSERT INTO ".$short." VALUES ('".$_SESSION['name']."','$id', 1)";

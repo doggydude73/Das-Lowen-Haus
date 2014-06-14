@@ -1,7 +1,7 @@
 <?php
     include 'Layout.php';
     $db = mysql_connect("localhost","root","jasmine");
-    mysql_select_db("Announcements", $db);
+    mysql_select_db("das_users", $db);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,6 @@
                     if ($counter == 5){break;}
 
                     $privacy = $row['access'];
-                    $approval = $row['approval'];
 
                     if ($privacy == "Private" && inRole() > 1 ){
                         // Get information and convert into a readable form
